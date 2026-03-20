@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Kamu...</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="antialiased font-sans text-white">
+    <audio id="bgm" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div
+      id="gateway"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#07050f]"
+    >
+      <h1 class="text-3xl md:text-4xl font-light mb-10 text-center px-4">
+        Ada pesan nih, buka ya?
+      </h1>
+      <button
+        id="btn-buka"
+        class="glow-button px-10 py-4 rounded-full border border-purple-500/50 bg-purple-900/20 text-white font-medium tracking-wide"
+      >
+        Buka Pesan
+      </button>
+    </div>
+
+    <div
+      id="main-content"
+      class="w-full max-w-4xl mx-auto opacity-0 transition-opacity duration-1000 hidden-initially flex flex-col items-center"
+    >
+      <section
+        class="min-h-screen w-full flex flex-col justify-center items-center text-center px-6 py-20"
+      >
+        <h2
+          class="text-6xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-4 drop-shadow-lg"
+        >
+          1.634
+        </h2>
+        <p class="text-2xl md:text-3xl text-gray-200 mb-8 tracking-wide">
+          Kilometer
+        </p>
+        <div
+          class="w-24 h-[1px] bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-8"
+        ></div>
+        <p class="text-xl text-gray-100 mb-2">Banyumas - Riau</p>
+        <p class="text-md text-gray-500 font-light mb-4">
+          Secara logika, ini jarak yang jauh banget.
+        </p>
+
+        <a
+          href="https://www.openstreetmap.org/directions"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-1.5 mt-2 rounded-full bg-white/5 border border-white/10 text-[10px] text-gray-400 font-mono tracking-widest uppercase hover:bg-white/10 transition-colors shadow-sm"
+        >
+          <span class="text-pink-400">🌐</span> Source: OpenStreetMap (OSM)
+          Routing Data
+        </a>
+      </section>
+
+      <section
+        class="min-h-[90vh] w-full flex flex-col justify-center items-center px-6"
+      >
+        <div
+          class="glass-card w-full max-w-2xl p-10 md:p-14 rounded-3xl text-center flex flex-col items-center relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-pink-600/10 blur-[50px] rounded-full pointer-events-none"
+          ></div>
+
+          <div
+            class="w-12 h-12 mb-8 rounded-full bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center border border-white/5"
+          >
+            <span class="text-2xl">💌</span>
+          </div>
+
+          <h3 class="text-3xl font-medium mb-2 text-white">Untukmu Vio</h3>
+
+          <p
+            class="text-xs text-purple-300 tracking-widest font-mono mb-8 border-b border-purple-500/30 pb-3"
+          >
+            16 Maret 2026
+          </p>
+
+          <div
+            class="space-y-6 text-gray-300 text-base md:text-lg leading-relaxed font-light z-10"
+          >
+            <p>
+              Sejak kita makin deket, Mas ngerasa ada yang beda. Dari hal-hal
+              yang Vio lakuin, termasuk waktu ngirim buket merah putih itu, Mas
+              sadar kalau jarak sejauh apa pun nggak pernah bisa ngehalangin Vio
+              buat ngasih perhatian ke Mas.
+            </p>
+            <p>
+              Makasih ya udah mau nerima Mas apa adanya. Semenjak ada Vio, Mas
+              ngerasa hari-hari Mas jauh lebih berwarna dan punya tujuan.
+            </p>
+            <p>
+              Mas nggak pernah takut sama jarak Banyumas - Riau, Mas cuma takut
+              kehilangan Vio. Setiap kilometer ini bakal jadi saksi kalau
+              perasaan Mas jauh lebih besar dari jaraknya.
+            </p>
+            <p class="italic text-gray-400 mt-10 font-serif text-sm">
+              Dengan sepenuh hati,<br />Mas
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="min-h-screen w-full flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20 px-6 py-20"
+      >
+        <div
+          class="bg-[#fdfbf7] p-3 pb-14 rounded-sm rotate-[-3deg] hover:rotate-0 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative"
+        >
+          <div
+            class="w-56 h-64 bg-gray-200 overflow-hidden flex items-center justify-center relative shadow-inner"
+            id="photo-slider"
+          >
+            <img
+              src="1.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-100"
+            />
+            <img
+              src="2.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+            <img
+              src="3.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+            <img
+              src="4.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+            <img
+              src="5.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+            <img
+              src="6.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+            <img
+              src="7.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+            <img
+              src="8.jpeg"
+              class="photo-slide object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 opacity-0"
+            />
+          </div>
+          <p
+            class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-800 font-semibold tracking-widest uppercase opacity-80"
+            style="font-family: &quot;Courier New&quot;, monospace"
+          >
+            Memori Kita
+          </p>
+        </div>
+
+        <div class="max-w-sm space-y-4 text-center md:text-left">
+          <h4
+            class="text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300"
+          >
+            Tayang dan Mas
+          </h4>
+          <p class="text-base text-gray-400 leading-relaxed font-light">
+            Foto yang pernah Mas cetak, dan gelang yang sekarang ada di tangan
+            Vio itu... cuma cara kecil Mas buat ngakalin jarak.
+          </p>
+
+          <div
+            class="mt-6 bg-purple-900/20 p-5 rounded-xl border border-purple-500/20 flex items-center gap-4 backdrop-blur-sm"
+          >
+            <span class="text-2xl opacity-80">💍</span>
+            <p
+              class="text-sm text-pink-200/90 leading-relaxed italic font-light text-left"
+            >
+              "Detail kecil adalah bukti sayang. Hal ini sejalan dengan prinsip
+              'Small Things Often' dari The Gottman Institute."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="min-h-[100vh] w-full flex flex-col justify-center items-center text-center px-6 pb-20 relative"
+      >
+        <div class="max-w-2xl space-y-6 mb-16">
+          <p
+            class="text-xl md:text-2xl text-gray-300 leading-relaxed font-light"
+          >
+            Mas tau LDR Banyumas - Riau itu nggak gampang dan butuh effort
+            ekstra.
+          </p>
+          <p
+            class="text-xl md:text-2xl text-gray-300 leading-relaxed font-light"
+          >
+            Tapi kalau tujuannya itu Vio, Mas berani.
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-semibold text-white mt-12 mb-4 leading-tight"
+          >
+            Jadi... kita jalanin bareng yuk?
+          </h2>
+          <span class="text-2xl font-light text-pink-400 block"
+            >Mau ya jadi pacar Mas?</span
+          >
+        </div>
+
+        <div
+          class="relative w-full max-w-sm h-32 flex justify-center items-center"
+        >
+          <button
+            id="btn-nggak"
+            class="absolute z-20 px-8 py-3 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-colors"
+            style="left: calc(50% + 20px)"
+          >
+            Nggak
+          </button>
+          <button
+            id="btn-iya"
+            class="absolute z-10 px-10 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-medium shadow-[0_0_20px_rgba(219,39,119,0.5)] hover:scale-105 transition-transform"
+            style="left: calc(50% - 150px)"
+          >
+            Iya, mau ❤️
+          </button>
+        </div>
+
+        <div
+          class="absolute bottom-4 left-0 w-full text-center opacity-40 hover:opacity-100 transition-opacity"
+        >
+          <p
+            class="text-[10px] md:text-xs text-gray-400 tracking-[0.2em] uppercase font-light"
+          >
+            A Long Distance Journey • Banyumas to Riau
+          </p>
+          <p class="text-[10px] md:text-xs text-gray-500 tracking-widest mt-2">
+            Made with ❤️ by Wahyu Teja Kusuma for Desvitha Viona BR Sembiring
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
